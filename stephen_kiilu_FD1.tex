@@ -1,0 +1,654 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Template for AIMS Rwanda Assignments         %%%              %%%
+%%% Author:   AIMS Rwanda tutors                             %%%   ###        %%%
+%%% Email: tutors2017-18@aims.ac.rw                               %%%   ###        %%%
+%%% Copyright: This template was designed to be used for    %%% #######      %%%
+%%% the assignments at AIMS Rwanda during the academic year %%%   ###        %%%
+%%% 2017-2018.                                              %%%   #########  %%%
+%%% You are free to alter any part of this document for     %%%   ###   ###  %%%
+%%% yourself and for distribution.                          %%%   ###   ###  %%%
+%%%                                                         %%%              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% Ensure that you do not write the questions before each of the solutions because it is not necessary. %%%%%% 
+
+\documentclass[12pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% packages %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{psfrag}
+
+%%%%%%%%%%%%%%%%%%%%% students data %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\student}{Stephen Kiilu}
+\newcommand{\course}{Fluid Dynamics}
+\newcommand{\assignment}{FD1}
+
+%%%%%%%%%%%%%%%%%%% using theorem style %%%%%%%%%%%%%%%%%%%%
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{quest}{Question}[section]
+
+%%%%%%%%%%%%%%  Shortcut for usual set of numbers  %%%%%%%%%%%
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%% title page %%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\begin{center}
+\textbf{AFRICAN INSTITUTE FOR MATHEMATICAL SCIENCES \\[0.5cm]
+(AIMS RWANDA, KIGALI)}
+\vspace{1.0cm}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%% assignment information %%%%%%%%%%%%%%%%
+\noindent
+\rule{17cm}{0.2cm}\\[0.3cm]
+Name: \student \hfill Assignment Number: \assignment\\[0.1cm]
+Course: \course \hfill Date: \today\\
+\rule{17cm}{0.05cm}
+\vspace{1.0cm}
+
+\section*{Question 1}
+You are given the following 2nd order linear ODE,
+\begin{eqnarray*}
+\frac{d^2z}{dt}+3\frac{dz}{dt}+3z=0
+\end{eqnarray*}
+\begin{enumerate}
+\item[(1)]
+We find the general equation\\
+Let
+\begin{eqnarray*}
+z(t)=e^{rt},
+\text{so we have}\\
+\frac{d^2z}{dt}=r^2e^{rt}\\
+\frac{dz}{dt}=re^{rt}
+\end{eqnarray*}
+Our auxilliary equation becomes;
+\begin{eqnarray*}
+r^2+3r+3=0
+\end{eqnarray*}
+We solve the auxiliary equation and obtain;
+\begin{eqnarray*}
+r_1&=&-\frac{3}{2}+\frac{\sqrt{3}}{2}i\\
+r_2&=&-\frac{3}{2}-\frac{\sqrt{3}}{2}i
+\end{eqnarray*}
+We proceed to write a general solution when we have complex roots,
+\begin{eqnarray*}
+z(t)&=& e^{\alpha t}(A\cos(\beta t)+B \sin (\beta t))\\
+\text{we have}\, , \alpha +i\beta\\
+\alpha &=& -\frac{3}{2}\\
+\beta &=& \frac{\sqrt{3}}{2}
+\end{eqnarray*}
+Our general solution becomes;
+\begin{eqnarray*}
+z(t)=e^{-\frac{3}{2} t}\left (A\cos( \frac{\sqrt{3}}{2} t)+B \sin ( \frac{\sqrt{3}}{2} t) \right)
+\end{eqnarray*}
+\item[(2)]
+We obtain general solutions using initial conditions ,
+z(0)=1\\
+\begin{eqnarray*}
+z(0)&=& e^0(A \cos(0)+B \sin (0))=1\\
+ A&=&1
+\end{eqnarray*}
+We have initial condition;
+\begin{eqnarray*}
+ \frac{dz}{dt}(0)=0
+\end{eqnarray*}
+We differentiate z(t) w.r.t to t and replace t=0;
+\begin{eqnarray*}
+\frac{dz}{dt}&=& -\frac{3}{2}e^{\frac{3}{2}t}\left( A\cos( \frac{\sqrt{3}}{2} t)+B \sin ( \frac{\sqrt{3}}{2} t)\right)+ e^{-{\frac{3}{2}t}}\left( -A{\frac{\sqrt{3}}{2}}\sin( \frac{\sqrt{3}}{2} t)+B{\frac{\sqrt{3}}{2}} \cos ( \frac{\sqrt{3}}{2} t)\right)\\
+ \frac{dz}{dt}(0)&=&-\frac{3}{2}A+{\frac{\sqrt{3}}{2}}B=0\\
+\end{eqnarray*}
+We obtain;
+\begin{eqnarray*}
+ A&=&1\\
+ B&=&\sqrt{3}
+\end{eqnarray*}
+We replace back A and B general solution, and obtain our general solution as;
+\begin{eqnarray*}
+z(t)=e^{-\frac{3}{2} t}\left (\cos( \frac{\sqrt{3}}{2} t)+ \sqrt{3}\sin ( \frac{\sqrt{3}}{2} t) \right)
+\end{eqnarray*}
+\item[(3)]
+Plot the trajectory using Python.
+\begin{figure}[H]
+\includegraphics[width=12cm]{2}
+\centering
+\caption{plot of the trajectory}
+\label{fig 1}
+\end{figure}
+\end{enumerate}
+\section*{Question 2}
+In this exercise we are going to describe the motion of a mass around an equilibrium position in a system of
+spring-mass-damper which can be described by the following 2nd order linear
+ODE,
+
+\begin{eqnarray*}
+m\frac{d^2z}{dt}+\gamma \frac{dz}{dt}+kz=0
+\end{eqnarray*}
+We assume that the solution is of form exponential.
+\begin{eqnarray*}
+\text{let}\, \, z(t) &=& e^{rt}\\
+\text{our auxilliary equation becomes}\,\,, mr^2+\gamma r+k&=&0\\
+\text{let D, be Discriminant, then;}\\
+D&=& \gamma ^2-4mk\\
+\end{eqnarray*}
+We are going to consider three cases of the damping.
+\begin{enumerate}
+\item[(i)]
+\textbf{$\gamma ^2-4mk > 0$  , Over damped case}\\
+In this case;
+\begin{eqnarray*}
+r_1&=& \frac{-\gamma +\sqrt{\gamma^2-4mk}}{2m}\\
+r_2&=& \frac{-\gamma -\sqrt{\gamma^2-4mk}}{2m}
+\end{eqnarray*}
+We can write our general equation as;
+\begin{eqnarray*}
+x(t)&=&c_1e^{\left(\frac{-\gamma +\sqrt{\gamma^2-4mk}}{2m}\right) t}+c_2e^{\left(\frac{-\gamma -\sqrt{\gamma^2-4mk}}{2m}\right) t}
+\end{eqnarray*}
+This is is called Over damped, the system will return to equilibrium position by exponentially decreasing to zero.
+
+\item[(ii)]
+\textbf{$\gamma ^2-4mk = 0$ , Critically damped case }\\
+In this case;
+\begin{eqnarray*}
+r_1&=&\frac{\gamma}{2m}\\
+\end{eqnarray*}
+We can write our general equation as;
+\begin{eqnarray*}
+x(t)&=&c_1e^{-\frac{\gamma t}{2m}}+tc_2e^{-\frac{\gamma t}{2m}}
+\end{eqnarray*}
+This case is know as critically damped, the system returns to equilibrium position very quickly without oscillating and passing through the equilibrium position at all. 
+
+\item[(iii)]
+\textbf{$\gamma ^2-4mk < 0$  , Under damped case }\\
+In this case;
+\begin{eqnarray*}
+r&=& \alpha +i\beta\\
+r&=& \frac{-\gamma -\sqrt{\gamma ^2 -4mk}}{2m}
+\end{eqnarray*}
+We can write the general solution as;
+\begin{eqnarray*}
+x(t)=e^{-\frac{\gamma t}{2m}} \left(   c_1 \cos\left( \frac{\sqrt{\gamma ^2 -4mk}}{2m}  \right)t   + c_2 \sin\left( \frac{\sqrt{\gamma ^2 -4mk}}{2m}  \right)t  \right)
+\end{eqnarray*}
+This case is known as under damped case, the system oscillates as it slowly returns to equilibrium.
+\end{enumerate}
+Hence we can conclude that, motion of mass under any intial conditions for z, $\frac{dz}{dt}$ tends to 0 ,if $\gamma$ is positive.
+\section*{Question 3}
+\begin{enumerate}
+\item[(1)]
+\begin{eqnarray*}
+\frac{d}{dt} \begin{pmatrix}
+x(t)\\
+y(t) 
+\end{pmatrix}= \begin{pmatrix}
+1 & 3 \\
+4 & 2 
+\end{pmatrix} \begin{pmatrix}
+x(t)\\
+y(t) 
+\end{pmatrix}\, , \begin{pmatrix}
+x(0)\\
+y(0) 
+\end{pmatrix} =\begin{pmatrix}
+1\\
+1
+\end{pmatrix}
+\end{eqnarray*} 
+We are going to find the eigenvalues and the corresponding eigenvectors.\\
+From our matrix, we form characteristic equation which takes the form;
+\begin{eqnarray*}
+A=\begin{pmatrix}
+1 & 3\\
+4& 2
+\end{pmatrix}\\
+\det (A-\mathbb{I} \lambda)
+\end{eqnarray*} 
+We obtain our characteristic equation as;
+\begin{eqnarray*}
+\lambda^2-3\lambda-10 =0
+\end{eqnarray*}
+We solve to obtain our eigenvalues as;
+\begin{eqnarray*}
+\lambda_1=-2\\
+\lambda_2=5\\
+\end{eqnarray*}
+We proceed to calculate the corresponding eigenvectors;
+\begin{eqnarray*}
+\text{for}\,, \lambda=-2\\
+\begin{pmatrix}
+1-\lambda & 3\\
+4 & 2-\lambda 
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y 
+\end{pmatrix}=
+\begin{pmatrix}
+0 \\
+0 
+\end{pmatrix}
+\end{eqnarray*}
+Which gives;
+\begin{eqnarray*}
+\begin{pmatrix}
+3 & 3\\
+4 & 4
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y 
+\end{pmatrix}=
+\begin{pmatrix}
+0 \\
+0 
+\end{pmatrix}
+\end{eqnarray*}
+We solve the following equation to obtain the eigenvectors;
+\begin{eqnarray*}
+3x=-3y\\
+4x=-4y\\
+\textbf{v}_1=\begin{pmatrix}
+1 \\
+-1 
+\end{pmatrix}
+\end{eqnarray*}
+Similarly;
+$$\text{for}\,, \lambda=5\\$$
+We solve the following equation to obtain the corresponding eigenvector,
+\begin{eqnarray*}
+3y-4x=0\\
+-3y+4x=0\\
+\end{eqnarray*}
+and obtain the eigenvector as;
+$$\textbf{v}_2=\begin{pmatrix}
+3 \\
+4
+\end{pmatrix} $$
+The general solution when we have two distinct eigenvalues is;
+\begin{eqnarray*}
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}=c_1e^{\lambda_1 t}v_1+c_2e^{\lambda_2 t}v_2\\
+\end{eqnarray*}
+Where $c_1$ and  $c_2$ are constants.
+The general solution becomes;
+\begin{eqnarray*}
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}=c_1 \begin{pmatrix}
+1 \\
+-1 
+\end{pmatrix}e^{-2t}+c_2 \begin{pmatrix}
+3 \\
+4 
+\end{pmatrix}e^{5t}\\
+\end{eqnarray*}
+We have use the initial conditions to obtain values of  $c_1$ and  $c_2$.
+\begin{eqnarray*}
+x(0)&=&-c_1+3c_2=1\\
+y(o)&=&c1+4c_2=1\\
+c_1&=&-\frac{-1}{7}\\
+c_2&=&-\frac{2}{7}\\
+\end{eqnarray*}
+Replacing  $c_1$ and  $c_2$, the particular solution becomes;
+\begin{eqnarray*}
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}= -\frac{1}{7}\begin{pmatrix}
+1 \\
+-1 
+\end{pmatrix}e^{-2t}+-\frac{2}{7} \begin{pmatrix}
+3 \\
+4 
+\end{pmatrix}e^{5t}\\
+\end{eqnarray*}
+
+\item[(2)]
+\begin{eqnarray*}
+\frac{d}{dt} \begin{pmatrix}
+x(t)\\
+y(t) 
+\end{pmatrix}= \begin{pmatrix}
+-2 & -1 \\
+5 & 2 
+\end{pmatrix} \begin{pmatrix}
+x(t)\\
+y(t) 
+\end{pmatrix}\, , \begin{pmatrix}
+x(0)\\
+y(0) 
+\end{pmatrix} =\begin{pmatrix}
+1\\
+1
+\end{pmatrix}
+\end{eqnarray*} 
+
+We are going to find the eigenvalues and the corresponding eigenvectors.\\
+From our matrix, we form characteristic equation which takes the form;
+\begin{eqnarray*}
+A=\begin{pmatrix}
+-2 & -1\\
+5& 2
+\end{pmatrix}\\
+\det (A-\mathbb{I} \lambda)
+\end{eqnarray*} 
+We obtain our characteristic equation as;
+\begin{eqnarray*}
+\lambda^2 +1 =0
+\end{eqnarray*}
+We solve to obtain our eigenvalues as;
+\begin{eqnarray*}
+\lambda_1=i\\
+\lambda_2=-i\\
+\end{eqnarray*}
+We now solve for eigenvectors;
+\begin{eqnarray*}
+\text{let}\,\,  \textbf{v}_1&=&\begin{pmatrix}
+a \\
+b
+\end{pmatrix} \,, \text{be eigenvector corresponding to } \lambda_1=i\\
+A\textbf{v}_1&=&\lambda _1\textbf{v}_1 \\
+\begin{pmatrix}
+-2&-1 \\
+5&2
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}&=&i
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+\end{eqnarray*}
+We solve the following equation to obtain the corresponding eigenvector;
+\begin{eqnarray*}
+-2a-b-ia\\
+-2a-ia=b
+\end{eqnarray*}
+The corresponding eigenvectors becomes;
+\begin{eqnarray*}
+\textbf{v}_1=\begin{pmatrix}
+1&0\\
+-2&i
+\end{pmatrix}\\
+\textbf{v}_2=\begin{pmatrix}
+1&0\\
+-2&-i
+\end{pmatrix}\\
+\textbf{v}=\begin{pmatrix}
+1\\
+-2
+\end{pmatrix} \pm -i
+\begin{pmatrix}
+0\\
+-1
+\end{pmatrix}\\
+\text{where}\,\, v=a \pm ib
+\end{eqnarray*}
+The general solution when we have complex eigenvalues is given by;
+\begin{eqnarray*}
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}&=&c_1e^{\alpha t}\left( a\cos(ut)-b\sin(ut)+ \right) +c_2e^{\alpha t}\left( a\sin(ut)-b\cos(ut)\right)\\
+\lambda &=& \pm i\\
+\alpha &=& 0\\
+u&=&1\\
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}& =&c_1 \begin{pmatrix}
+1\\
+-2
+\end{pmatrix} \cos (t)-c_1
+\begin{pmatrix}
+0\\
+-1
+\end{pmatrix} \sin (t)+ c_2\begin{pmatrix}
+1\\
+-2
+\end{pmatrix} \sin (t)+c_2
+\begin{pmatrix}
+0\\
+-1
+\end{pmatrix} \cos (t)\\
+\textbf{x}(t)&=&c_1 \cos(t)+c_2 \sin(t)\\
+\textbf{y}(t)&=&-2c_1 \cos(t)+c_1 \sin(t)-2c_2\sin(t)-c_2\cos(t) \\
+x(0)&=&c_1=1\\
+y(0)&=&-2c_1-c_2=1\\
+c_1&=&1\\
+c_2&=&-3
+\end{eqnarray*}
+Where $c_1$ and  $c_2$ are constants. Replacing  $c_1$ and  $c_2$  we obtain the following particular;
+\begin{eqnarray*}
+\textbf{x}(t)&=& \cos(t)+ \sin(t)\\
+\textbf{y}(t)&=&cos(t)+7 \sin(t)
+\end{eqnarray*}
+
+\item[(3)]
+\begin{eqnarray*}
+\frac{d}{dt} \begin{pmatrix}
+x(t)\\
+y(t) 
+\end{pmatrix}= \begin{pmatrix}
+1 & -1 \\
+1 & 3 
+\end{pmatrix} \begin{pmatrix}
+x(t)\\
+y(t) 
+\end{pmatrix}\, , \begin{pmatrix}
+x(0)\\
+y(0) 
+\end{pmatrix} =\begin{pmatrix}
+1\\
+1
+\end{pmatrix}
+\end{eqnarray*}
+We are going to find the eigenvalues and corresponding eigenvectors;
+
+From our matrix, we form characteristic equation which takes the form;
+\begin{eqnarray*}
+A=\begin{pmatrix}
+1 & -1\\
+1& 3
+\end{pmatrix}\\
+\det (A-\mathbb{I} \lambda)
+\end{eqnarray*} 
+We obtain our characteristic equation as;
+\begin{eqnarray*}
+\lambda^2 -\lambda +4 =0
+\end{eqnarray*}
+We solve to obtain our eigenvalues as;
+\begin{eqnarray*}
+\lambda=2 \,(\text{Repeated})\\
+\end{eqnarray*}
+We now solve for eigenvectors;
+\begin{eqnarray*}
+\begin{pmatrix}
+-1 & -1\\
+1& 1
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y
+\end{pmatrix}&= &
+\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}\\
+x_1&=&x_2\\
+\textbf{p}&=&
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}
+\end{eqnarray*}
+The two particular solutions when we have repeated roots  are given by;
+\begin{eqnarray*}
+\textbf{x}(t)&=&\textbf{p}e^{\lambda t}\\
+\textbf{y}(t)&=& \textbf{p}te^{\lambda t}+\textbf{q}e^{\lambda t}
+\end{eqnarray*}
+We need to find for an expression that will enable us find $\textbf{q}$.
+\begin{eqnarray*}
+(A-\lambda \mathbb{I})\textbf{q}=\textbf{p}\\ \vspace{15mm}
+\begin{pmatrix}
+-1 & -1\\
+1& 1
+\end{pmatrix}
+\begin{pmatrix}
+q_1 \\
+q_2
+\end{pmatrix}&= &
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}\\
+q_1+q_2=1\\
+q_2=\beta \\
+q_1=-1-\beta\\
+\begin{pmatrix}
+q_1 \\
+q_2
+\end{pmatrix}= \begin{pmatrix}
+-1 \\
+0
+\end{pmatrix} - \beta \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}
+\end{eqnarray*}
+The general solution is given by;
+\begin{eqnarray*}
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}=c_1  \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} e^{2t}+c_2  \begin{pmatrix}
+-1 \\
+1
+\end{pmatrix}  t e^{2t}+ c_2  \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}  t e^{2t}
+\end{eqnarray*}
+Now we introduce initial conditionm, for us to find the value of $c_1$ and $c_2$, which are constants.
+\begin{eqnarray*}
+x(0)=-c_1+c_2=1\\
+c_2=1+c_1\\
+y(0)=c_1+c_2=1\\
+\end{eqnarray*}
+We obtain $c_1$ and $c_2$ as;
+\begin{eqnarray*}
+c_1=1\\
+c_2=2
+\end{eqnarray*}
+We replace back  $c_1$ and $c_2$ and obtain our particular solution as;
+\begin{eqnarray*}
+\begin{pmatrix}
+x(t) \\
+y(t)
+\end{pmatrix}=  \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} e^{2t}+2  \begin{pmatrix}
+-1 \\
+1
+\end{pmatrix}  t e^{2t}+ 2 \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}  t e^{2t}
+\end{eqnarray*}
+\end{enumerate}
+
+\section*{Question 4}
+When an object is undergoing simple harmonic oscillation, the object experiences a resisting force towards equilibrium position. In our case beta is called damping coefficient . We will consider for cases of damping.
+\begin{enumerate}
+\item[•]
+\textbf{$Beta >2,$ Over damping}, the system returns to equilibrium by exponential reducing to zero by passing through equilibrium position only once.
+\item[•]
+\textbf{$Beta =2,$ critical damping}, the system returns to equilibrium position very fast without oscillating or passing the equilibrium at all.
+\item[•]
+\textbf{$Beta <2,$ under damping},the system keeps oscillating as it slowly returns to equilibrium and the amplitude decreases over time.
+\end{enumerate}
+
+\begin{enumerate}
+\item[1]
+The figure \ref{fig 5} below shows different cases of damping. The blue oscillation ($Beta =0$) is when coefficient of damping is equal to zero and is referred to as \textbf{undamped}. Here there is no resisting force and the system will continue oscillating without reduction in amplitude. The oscillation when ($Beta =0$), is called \textbf{overdamped}. The oscillation when ($Beta =0.8$), is referred to as \textbf{under damped}.The oscillation when ($Beta= 2.4$) is referred to as \textbf{critical damping}.
+\begin{figure}[H]
+\includegraphics[width=12cm]{10}
+\centering
+\caption{plot x(t) against time}
+\label{fig 5}
+\end{figure}
+The figure \ref{fig 6} below shows as phase diagram when beta is between 0 and 4. The under damped oscillates as it slowly returns to equilibrium position. The over damped returns to equilibrium by exponentially decaying to zero. The systems all converge to zero, but some return to zero very quickly while others very slowly.
+
+\begin{figure}[H]
+\includegraphics[width=12cm]{11}
+\centering
+\caption{phase diagram}
+\label{fig 6}
+\end{figure}
+\item[2]
+The figure \ref{fig 7} shows different damping cases when we have more realistic friction force, under many circumstances. For the \textbf{under damped }, the amplitude of the system is smaller compared to when the system is  \textbf{over damped }. The systems are all converging to zero.\\
+\begin{figure}[H]
+\includegraphics[width=12cm]{12}
+\centering
+\caption{plot of x(t) against time }
+\label{fig 7}
+\end{figure}
+\end{enumerate}
+The figure \ref{fig 8} below shows a phase diagram when we have more realistic friction force. It shows as spiral source, that is diverging away from zero. The system is neutrally unstable.
+
+\begin{figure}[H]
+\includegraphics[width=12cm]{13}
+\centering
+\caption{phase diagram}
+\label{fig 8}
+\end{figure}
+\newpage
+\begin{thebibliography}{99}
+
+  \bibitem{notes} Prof.Yoshifumi Kimura  ,{\em Lecture notes,}  2021.\\
+  \bibitem{url} \url{https://courses.lumenlearning.com/boundless-physics/chapter/damped-and-driven-oscillations/} 
+
+
+\end{thebibliography}
+
+\end{document}
